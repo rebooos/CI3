@@ -1,20 +1,20 @@
 # Возможные команды
-start страт проекта
+**start** страт проекта
 
-stop остановка
+**stop** остановка
 
-show_containers просмотр запущенных контенеров
+**show_containers** просмотр запущенных контенеров
 
-connect_php зайти внутрь контейнера с PHP
+**connect_php** зайти внутрь контейнера с PHP
 
-connect_nginx зайти внутрь контейнера с nginx
+**connect_nginx** зайти внутрь контейнера с nginx
 
-connect_mysql зайти внутрь контейнера с mysql
+**connect_mysql** зайти внутрь контейнера с mysql
 
-#создать нового пользователя
+# создать нового пользователя
 http://test.loc/main_page/registration/'LOGIN'/'EMAIL'/'PASSWORD'
 
-#Dump BD
+# Dump BD
 Dump находится в папке mysql-dump
 
 # Задание

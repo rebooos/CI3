@@ -20,3 +20,6 @@ connect_nginx:
 
 connect_mysql: 
 	@docker exec -it $(docker_mysql) bash
+
+dump_up:
+    cat mysql-dump/dump_test_task.sql |  docker exec -i ci3_mysql_1 mysql -u root --password=root test_task

@@ -153,6 +153,7 @@
           <div class="card mb-3">
             <div class="post-img" v-bind:style="{ backgroundImage: 'url(' + post.img + ')' }"></div>
             <div class="card-body">
+                <div v-if="errorLike">{{ errorLike }}</div>
               <div class="likes" @click="addLike(post.id)">
                 <div class="heart-wrap" v-if="!likes">
                   <div class="heart">

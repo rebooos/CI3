@@ -35,7 +35,7 @@ class Main_page extends MY_Controller
 	public function get_user()
 	{
 		$user = User_model::get_user();
-		if (empty($user)) {
+		if ($user->get_id()) {
 			return $this->response_success(['user' => User_model::preparation($user, 'main_page')]);
 		}
 
@@ -173,7 +173,7 @@ class Main_page extends MY_Controller
 		$boosterpack = new Boosterpack_model($id);
 		$result = $boosterpack->buy_boosterpack();
 
-		if ($result) {
+		if (!empty($result) && $result != false) {
 			return $this->response_success($result);
 		}
 

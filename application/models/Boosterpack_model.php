@@ -134,6 +134,10 @@ class Boosterpack_model extends CI_Emerald_Model
     {
 		$user = User_model::get_user();
 
+		if (empty($user)) {
+			return false;
+		}
+
         if ($this->price > $user->get_wallet_balance()) {
             return false;
 	    }

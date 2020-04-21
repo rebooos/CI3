@@ -84,6 +84,7 @@ let app = new Vue({
 		invalidPass: false,
 		invalidSum: false,
 		errorLogin: '',
+		errorLike: '',
 		commentReplay: [],
 		posts: [],
 		likes: 0,
@@ -191,6 +192,7 @@ let app = new Vue({
 		},
 		openPost: function (id) {
 			var self= this;
+			self.errorLike='';
 			axios
 				.get('/main_page/get_post/' + id)
 				.then(function (response) {
@@ -210,6 +212,11 @@ let app = new Vue({
 					comment_id: comment_id
 				})
 				.then(function (response) {
+					if (response.data.status === "error") {
+						self.errorLike = response.data.error_message;
+						return;
+					}
+
 					self.user.count_likes = response.data.count_likes;
 					self.post = response.data.post;
 				})
@@ -223,6 +230,7 @@ let app = new Vue({
 			})
 				.then(function (response) {
 					let data = response.data;
+					console.log(response);
 					self.amount = data.amount
 					if (data.status === "success") {
 						self.user.wallet_balance = data.wallet_balance;
@@ -261,7 +269,7 @@ let app = new Vue({
 		openModal: function() {
 			let self = this;
 			axios
-				.get('/main_page/history_data')
+				.post('/main_page/history_data')
 				.then(function(response) {
 					self.historyBoosterpackData = response.data.historyBoosterpackData;
 					self.historyBalanceData = response.data.historyBalanceData;

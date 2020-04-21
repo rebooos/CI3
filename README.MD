@@ -1,4 +1,4 @@
-# Возможные команды
+#### Возможные команды
 **start** страт проекта
 
 **stop** остановка
@@ -11,11 +11,17 @@
 
 **connect_mysql** зайти внутрь контейнера с mysql
 
-# создать нового пользователя
+#### создать нового пользователя
 http://test.loc/main_page/registration/'LOGIN'/'EMAIL'/'PASSWORD'
 
-# Dump BD
+#### Dump DB
 Dump находится в папке mysql-dump
+
+база данных называется: **test_task**
+
+user: **root**
+password: **root**
+
 
 # Задание
 # Backend PHP | Full stack dev test task v2

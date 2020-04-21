@@ -16,7 +16,9 @@ http://test.loc/main_page/registration/'LOGIN'/'EMAIL'/'PASSWORD'
 
 #### Dump DB
 Dump находится в папке mysql-dump
-
+база данных называется: **test_task**
+**user: root**
+**password: root**
 
 # Задание
 # Backend PHP | Full stack dev test task v2

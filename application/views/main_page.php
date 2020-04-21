@@ -108,6 +108,9 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
+                <div class="invalid-feedback" v-if="errorLogin">
+                    {{ errorLogin }}.
+                </div>
               <label for="exampleInputEmail1">Please enter login</label>
               <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" v-model="login" required>
               <div class="invalid-feedback" v-if="invalidLogin">
@@ -240,7 +243,7 @@
               </div>
                 <div id="all_spend" class="tab-pane fade">
                   <h3>Total</h3>
-                  <div id="table">
+                  <div id="table" v-if="user">
                       <div class="col-md-12">Total added money: {{ user.wallet_total_refilled }}</div>
                       <div class="col-md-12">Total spend money: {{ user.wallet_total_withdrawn }}</div>
                   </div>

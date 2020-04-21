@@ -35,11 +35,11 @@ class Main_page extends MY_Controller
 	public function get_user()
 	{
 		$user = User_model::get_user();
-		if ($user) {
+		if (empty($user)) {
 			return $this->response_success(['user' => User_model::preparation($user, 'main_page')]);
 		}
 
-		return false;
+		return $this->response_error(CI_Core::RESPONSE_GENERIC_NO_DATA);
 	}
 
 	public function get_all_posts()

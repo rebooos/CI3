@@ -83,6 +83,7 @@ let app = new Vue({
 		invalidLogin: false,
 		invalidPass: false,
 		invalidSum: false,
+		errorLogin: '',
 		commentReplay: [],
 		posts: [],
 		likes: 0,
@@ -104,7 +105,7 @@ let app = new Vue({
 				price: 50
 			},
 		],
-		user: false,
+		user: {},
 		historyBalanceColumns: ["Date", "past", "now"],
 		historyBalanceData: [],
 		historyBoosterpackColumns: ["Date", "NBP", "Price", "CountLike"],
@@ -125,13 +126,17 @@ let app = new Vue({
 			})
 		axios.get('/main_page/get_user')
 			.then(function (response) {
+				if (response.status === "error") {
+					return
+				}
 				self.user = response.data.user
 			})
 	},
 	methods: {
 		logIn: function () {
 			var self= this;
-			if(self.login === ''){
+			self.errorLogin = '';
+			if(self.login === '') {
 				self.invalidLogin = true
 			}
 			else if(self.pass === '') {
@@ -148,7 +153,8 @@ let app = new Vue({
 					.then(function (response) {
 
 						if (response.data.status === 'error') {
-							console.log(response.data.status.error_message);
+							self.errorLogin = response.data.error_message;
+							return;
 						}
 
 						if (typeof response.data.user !== "undefined") {

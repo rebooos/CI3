@@ -1,6 +1,6 @@
-docker_php = test_ci3_php-fpm_1
-docker_nginx = test_ci3_nginx_1
-docker_mysql = test_ci3_mysql_1
+docker_php = ci3_php-fpm_1
+docker_nginx = ci3_nginx_1
+docker_mysql = ci3_mysql_1
 
 #some commands
 start: 
